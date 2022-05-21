@@ -1,0 +1,53 @@
+make virtual env for project
+
+in proejct directory:
+python -m venv env
+
+to run venv:
+env\Scripts\activate.bat
+
+download dependencies
+
+to exit env:
+deactivate
+
+WinError 2, couldnt install due to error
+ERROR: Could not install packages due to an EnvironmentError: [WinError 2] 
+The system cannot find the file specified: 
+'c:\\python39\\Scripts\\sqlformat.exe' -> 'c:\\python39\\Scripts\\sqlformat.exe.deleteme'
+
+used command pip install django --no-cache-dir
+
+pip install djangorestframework
+pip install django-cors-headers
+
+in project folder
+python -m django startproject InventoryAPI
+
+to run server, in project dir
+python manage.py runserver
+
+access on local , http://ip:port on browser
+python manage.py start app InventoryApp
+
+in settings.py add app dependencies installed_apps:
+rest_framework,
+corsheaders,
+InventoryApp.apps.InventoryappConfig
+
+middle ware dependecy added
+
+CORS_ORIGIN_ALLOW_ALL = True 
+
+create models for items and category
+
+add db driver for python and mongodb
+pip install djongo
+pip install dnspython
+
+add mongodb database dependency in settings.py
+
+python manage.py makemigrations InventoryApp
+
+
+
