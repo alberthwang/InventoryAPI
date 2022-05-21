@@ -16,6 +16,8 @@ ERROR: Could not install packages due to an EnvironmentError: [WinError 2]
 The system cannot find the file specified: 
 'c:\\python39\\Scripts\\sqlformat.exe' -> 'c:\\python39\\Scripts\\sqlformat.exe.deleteme'
 
+fixed by changing permissions properties setting for c:/python39 to allow full control
+
 used command pip install django --no-cache-dir
 
 pip install djangorestframework
