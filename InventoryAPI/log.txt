@@ -6,10 +6,17 @@ python -m venv env
 to run venv:
 env\Scripts\activate.bat
 
-download dependencies
-
 to exit env:
 deactivate
+
+to add environment variables
+pip install python-dotenv
+make .env file at root
+replace sensitive information in files 
+
+download dependencies
+
+
 
 WinError 2, couldnt install due to error
 ERROR: Could not install packages due to an EnvironmentError: [WinError 2] 
@@ -18,7 +25,7 @@ The system cannot find the file specified:
 
 fixed by changing permissions properties setting for c:/python39 to allow full control
 
-used command pip install django --no-cache-dir
+used command pip install django
 
 pip install djangorestframework
 pip install django-cors-headers
@@ -37,7 +44,7 @@ rest_framework,
 corsheaders,
 InventoryApp.apps.InventoryappConfig
 
-middle ware dependecy added
+middle ware dependency added
 
 CORS_ORIGIN_ALLOW_ALL = True 
 
