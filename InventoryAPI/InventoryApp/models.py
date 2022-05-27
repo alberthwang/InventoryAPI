@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Category(models.Model):
+class Categories(models.Model):
     CategoryId = models.AutoField(primary_key=True)
     CategoryName = models.CharField(max_length=150)
 
@@ -10,7 +10,7 @@ class Category(models.Model):
         return str(self.name)
     
 
-class Item(models.Model):
+class Items(models.Model):
     ItemId = models.AutoField(primary_key=True)
     ItemName = models.CharField(max_length=150)
     Category = models.CharField(max_length=150)

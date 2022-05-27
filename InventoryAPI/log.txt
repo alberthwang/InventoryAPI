@@ -63,3 +63,12 @@ You need to install pymongo 3.12.1.
 
 pip install pymongo==3.12.1
 
+python manage.py migrate InventoryApp
+
+added serializer file and corresponding serializer classes to help with data manipulation
+
+added url pattens
+
+from django.conf.urls import url # deprecated
+used from django.urls import re_path instead for django 4.0 > 
+
