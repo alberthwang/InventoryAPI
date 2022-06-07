@@ -3,15 +3,15 @@ from django.db import models
 # Create your models here.
 
 class Categories(models.Model):
-    CategoryId = models.AutoField(primary_key=True)
+    CategoryId = models.AutoField(primary_key=True, unique=True)
     CategoryName = models.CharField(max_length=150)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.CategoryName)
     
 
 class Items(models.Model):
-    ItemId = models.AutoField(primary_key=True)
+    ItemId = models.AutoField(primary_key=True, unique=True)
     ItemName = models.CharField(max_length=150)
     Category = models.CharField(max_length=150)
     Quantity = models.PositiveSmallIntegerField()
@@ -22,4 +22,4 @@ class Items(models.Model):
     LastUpdated = models.DateTimeField()
 
     def __str__(self):
-        return str(self.name)
+        return str(self.ItemName)

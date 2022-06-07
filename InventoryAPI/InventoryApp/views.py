@@ -24,7 +24,7 @@ def categoryApi(request, id=0):
         return JsonResponse("Failed to Add", safe=False)
     elif request.method == 'PUT':
         category_data = JSONParser().parse(request)
-        category = Categories.objects.get(category_data['CategoryId'])
+        category = Categories.objects.get(CategoryId=category_data['CategoryId'])
         categories_serializer = CategorySerializer(category, data=category_data)
         if categories_serializer.is_valid():
             categories_serializer.save()
