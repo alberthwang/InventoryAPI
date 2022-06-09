@@ -18,8 +18,8 @@ class Items(models.Model):
     Details = models.TextField()
     AmazonLink = models.CharField(max_length=150)
     InsertBy = models.CharField(max_length=42)
-    InsertDate = models.DateField()
-    LastUpdated = models.DateTimeField()
+    InsertDate = models.DateTimeField(auto_now_add=True)
+    LastUpdated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.ItemName)

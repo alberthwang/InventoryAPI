@@ -36,6 +36,34 @@ def categoryApi(request, id=0):
         return JsonResponse("Deleted Successfully", safe=False)
          
 
+#api for item
+@csrf_exempt
+def itemApi(request, id=0):
+    if request.method == 'GET':
+        items = Items.objects.all()
+        items_serializer = ItemSerializer(items, many=True)
+        return JsonResponse(items_serializer.data, safe=False)
+    elif request.method == 'POST':
+        item_data = JSONParser().parse(request)
+        items_serializer = ItemSerializer(data=item_data)
+        if items_serializer.is_valid():
+            items_serializer.save()
+            return JsonResponse("Added Successfully", safe=False)
+        return JsonResponse("Failed to Add", safe=False)
+    elif request.method == 'PUT':
+        item_data = JSONParser().parse(request)
+        item = Items.objects.get(ItemId=item_data['ItemId'])
+        items_serializer = ItemSerializer(item, data=item_data)
+        if items_serializer.is_valid():
+            items_serializer.save()
+            return JsonResponse("Update Successfully", safe=False)
+        return JsonResponse("Failed to Update")
+    elif request.method == 'DELETE':
+        item = Items.objects.get(ItemId=id)
+        item.delete()
+        return JsonResponse("Deleted Successfully", safe=False)
+         
+
 
 
 

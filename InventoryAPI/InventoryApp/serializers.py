@@ -12,5 +12,3 @@ class ItemSerializer(serializers.ModelSerializer):
         fields=('ItemId', 'ItemName', 'Category', 'Quantity', 'Details', 'AmazonLink', 'InsertBy', 'InsertDate', 'LastUpdated')
 
 
-
-            
