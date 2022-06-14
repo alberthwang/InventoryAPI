@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
@@ -20,6 +21,10 @@ class Items(models.Model):
     InsertBy = models.CharField(max_length=42)
     InsertDate = models.DateTimeField(auto_now_add=True)
     LastUpdated = models.DateTimeField(auto_now=True)
+    Barcode = models.ImageField(upload_to='barcodes/', blank=True)
 
     def __str__(self):
         return str(self.ItemName)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
