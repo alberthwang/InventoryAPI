@@ -78,5 +78,11 @@ added auto increment to mongodb for categoryid and itemid
 
 https://www.mongodb.com/basics/mongodb-auto-increment
 
+adding barcode in models
+https://python.plainenglish.io/generating-barcodes-with-django-52e450fd960b
+
+added folder+static setting urls
+
+https://python.plainenglish.io/generating-barcodes-with-django-52e450fd960b
 
 

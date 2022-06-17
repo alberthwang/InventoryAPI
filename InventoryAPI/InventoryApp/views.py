@@ -6,6 +6,8 @@ from django.http.response import JsonResponse
 from InventoryApp.models import Categories, Items
 from InventoryApp.serializers import CategorySerializer, ItemSerializer
 
+from django.core.files.storage import default_storage
+
 # Create your views here.
 
 #api for category
@@ -62,7 +64,13 @@ def itemApi(request, id=0):
         item = Items.objects.get(ItemId=id)
         item.delete()
         return JsonResponse("Deleted Successfully", safe=False)
-         
+
+#save item barcode file
+@csrf_exempt  
+def savefile(request):
+    file = request.FILES['file']
+    file_name = default_storage.save(file.name, file)
+    return JsonResponse(file_name)
 
 
 
