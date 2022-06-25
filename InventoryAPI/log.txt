@@ -85,4 +85,11 @@ added folder+static setting urls
 
 https://python.plainenglish.io/generating-barcodes-with-django-52e450fd960b
 
+create react project
+npx create-react-app ui
+
+to start ui, go to ui folder and user command:
+npm start
+
+npm install react-bootstrap bootstrap
 
