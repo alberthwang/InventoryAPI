@@ -13,5 +13,5 @@ urlpatterns=[
     re_path(r'^item[\/]*$', views.itemApi),
     re_path(r'^item/([0-9]+)$', views.itemApi),
     
-    re_path(r'^/item/savefile')
+    re_path(r'^item/savefile', views.savefile)
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
