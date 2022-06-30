@@ -92,4 +92,27 @@ to start ui, go to ui folder and user command:
 npm start
 
 npm install react-bootstrap bootstrap
+npm install react-router-dom
+
+
+In react-router-dom v6, "Switch" is replaced by routes "Routes". You need to update the import from
+
+import { Switch, Route } from "react-router-dom";
+
+to
+
+import { Routes ,Route } from 'react-router-dom';
+
+You also need to update the Route declaration from
+
+<Route path="/" component={Home} />
+
+to
+
+<Route path='/welcome' element={<Home/>} />
+
+
+make sure react env file is in root of react project, not the src
+
+
 
