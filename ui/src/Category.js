@@ -1,11 +1,14 @@
 import React,{Component} from 'react';
 import { Table } from 'react-bootstrap';
 
+import {Button, ButtonToolbar} from 'react-bootstrap'
+import { AddCatModal } from './AddCatModal';
+
 export class Category extends Component{
 
     constructor(props){
         super(props);
-        this.state={cats:[]}
+        this.state={cats:[], addModalShow:false}
     }
 
     refreshList(){
@@ -24,6 +27,7 @@ export class Category extends Component{
 
     render(){
         const {cats}= this.state;
+        let addModalClose=()=>this.setState({addModalShow:false});
         return(
             <div >
                 <Table className='mt-4' striped bordered hover size='sm'>
@@ -43,6 +47,16 @@ export class Category extends Component{
                             </tr>)}
                     </tbody>
                 </Table>
+
+                <ButtonToolbar>
+                    <Button variant='primary' onClick={()=>this.setState({addModalShow:true})}>
+                        Add Category
+                    </Button>
+                    <AddCatModal show={this.state.addModalShow} 
+                    onHide={addModalClose}>
+                    </AddCatModal>
+                </ButtonToolbar>
+
             </div>
         )
     }

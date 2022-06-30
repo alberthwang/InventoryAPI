@@ -4,12 +4,12 @@ import { Modal, Button, Row, Col, Form, ModalHeader, ModalTitle, ModalBody, Form
 export class AddCatModal extends Component{
     constructor(props){
         super(props);
-    
+        this.handleSubmit=this.handleSubmit.bind(this);
     }
 
     handleSubmit(event){
-        event.preventdefault();
-        fetch(process.env.REACT_APP_API+'category'),{
+        event.preventDefault();
+        fetch(process.env.REACT_APP_API+'category',{
             method:'POST',
             headers:{
                 'Accept':'application/json',
@@ -19,15 +19,16 @@ export class AddCatModal extends Component{
                 CategoryId:null,
                 CategoryName:event.target.CategoryName.value
             })
-            .then(res=>res.json())
-            .then((result)=>{
-                alert(result)
-            },
-            (error)=>{
-                alert('Failed');
-            })
+        })
+        .then(res=>res.json())
+        .then((result)=>{
+            alert(result);
+        },
+        (error)=>{
+            alert('Failed');
+        })
                 
-        }
+
     }
 
     render(){
