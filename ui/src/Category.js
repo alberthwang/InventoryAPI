@@ -26,6 +26,19 @@ export class Category extends Component{
         this.refreshList();
     }
 
+    deleteCat(catid){
+        if(window.confirm("Are you sure?")){
+            fetch(process.env.REACT_APP_API+'category/'+catid,{
+                method:'DELETE',
+                headers:{
+                    'Accept':'application/json',
+                    'Content-Type':'application/json'
+                }
+            });
+        }
+
+    }
+
     render(){
         const {cats, catid, catname}= this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
@@ -45,7 +58,6 @@ export class Category extends Component{
                             <tr key={cat.CategoryId}>
                                 <td>{cat.CategoryId}</td>
                                 <td>{cat.CategoryName}</td>
-                                <td>Edit/Delete</td>
                                 <td> <ButtonToolbar>
                                     <Button className="mr-2" variant="info" 
                                     onClick={()=>this.setState({editModalShow:true, catid:cat.CategoryId, catname:cat.CategoryName})}>
@@ -55,7 +67,12 @@ export class Category extends Component{
                                     onHide={editModalClose}
                                     catid={catid}
                                     catname={catname}/>
-
+                                    <Button className="mr-2" variant="danger" 
+                                    onClick={()=>this.deleteCat(cat.CategoryId)}>
+                                        Delete
+                                    </Button>
+                                    
+                                    
                                     </ButtonToolbar></td>
                             </tr>)}
                     </tbody>
