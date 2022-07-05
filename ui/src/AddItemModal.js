@@ -17,7 +17,14 @@ export class AddItemModal extends Component{
             },
             body:JSON.stringify({
                 ItemId:null,
-                ItemName:event.target.ItemName.value
+                ItemName:event.target.ItemName.value,
+                Category:event.target.Category.value,
+                Quantity:event.target.Quantity.value,
+                Details:event.target.Details.value,
+                AmazonLink:event.target.AmazonLink.value,
+                InsertBy:event.target.InsertBy.value,
+                InsertDate:null,
+                LastUpdated:null
             })
         })
         .then(res=>res.json())
@@ -50,9 +57,18 @@ export class AddItemModal extends Component{
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
                                     <FormGroup controlId="ItemName">
-                                        <FormLabel>ItemName</FormLabel>
+                                        <FormLabel>Item Name</FormLabel>
                                         <FormControl type="text" name="ItemName" required placeholder="ItemName"></FormControl>
-
+                                        <FormLabel>Category</FormLabel>
+                                        <FormControl type="text" name="Category" required placeholder="Category"></FormControl>
+                                        <FormLabel>Quantity</FormLabel>
+                                        <FormControl type="text" name="Quantity" required placeholder="Quantity"></FormControl>
+                                        <FormLabel>Details</FormLabel>
+                                        <FormControl type="text" name="Details" required placeholder="Details"></FormControl>
+                                        <FormLabel>Amazon Link</FormLabel>
+                                        <FormControl type="text" name="AmazonLink" required placeholder="AmazonLink"></FormControl>
+                                        <FormLabel>Insert By</FormLabel>
+                                        <FormControl type="text" name="InsertBy" required placeholder="InsertBy"></FormControl>
                                     </FormGroup>
                                     <FormGroup>
                                         <Button variant="primary" type="submit">

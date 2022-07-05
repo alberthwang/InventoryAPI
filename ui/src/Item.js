@@ -40,7 +40,7 @@ export class Item extends Component{
     }
 
     render(){
-        const {items, itemid, itemname}= this.state;
+        const {items, itemid, itemname, cat, quantity, detail, amzl, insertby, insertdate, lastupdated}= this.state;
         let addModalClose=()=>this.setState({addModalShow:false});
         let editModalClose=()=>this.setState({editModalShow:false});
         return(
@@ -50,6 +50,13 @@ export class Item extends Component{
                         <tr>
                             <th>ItemId</th>
                             <th>ItemName</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Details</th>
+                            <th>Amazon</th>
+                            <th>InsertBy</th>
+                            <th>InsertDate</th>
+                            <th>LastUpdated</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -58,21 +65,31 @@ export class Item extends Component{
                             <tr key={item.ItemId}>
                                 <td>{item.ItemId}</td>
                                 <td>{item.ItemName}</td>
+                                <td>{item.Category}</td>
+                                <td>{item.Quantity}</td>
+                                <td>{item.Details}</td>
+                                <td>{item.AmazonLink}</td>
+                                <td>{item.InsertBy}</td>
+                                <td>{item.InsertDate}</td>
+                                <td>{item.LastUpdated}</td>
                                 <td> <ButtonToolbar>
                                     <Button className="mr-2" variant="info" 
-                                    onClick={()=>this.setState({editModalShow:true, itemid:item.ItemId, itemname:item.ItemName})}>
+                                    onClick={()=>this.setState({editModalShow:true, itemid:item.ItemId, itemname:item.ItemName, cat:item.Category, quantity:item.Quantity, detail:item.Details, amzl:item.AmazonLink})}>
                                         Edit
                                     </Button>
                                     <EditItemModal show={this.state.editModalShow}
                                     onHide={editModalClose}
                                     itemid={itemid}
-                                    itemname={itemname}/>
+                                    itemname={itemname}
+                                    cat={cat}
+                                    quantity={quantity}
+                                    detail={detail}
+                                    amzl={amzl}
+                                    />
                                     <Button className="mr-2" variant="danger" 
                                     onClick={()=>this.deleteItem(item.ItemId)}>
                                         Delete
                                     </Button>
-                                    
-                                    
                                     </ButtonToolbar></td>
                             </tr>)}
                     </tbody>

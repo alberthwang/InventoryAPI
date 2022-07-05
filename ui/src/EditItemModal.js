@@ -17,7 +17,11 @@ export class EditItemModal extends Component{
             },
             body:JSON.stringify({
                 ItemId:event.target.ItemId.value,
-                ItemName:event.target.ItemName.value
+                ItemName:event.target.ItemName.value,
+                Category:event.target.Category.value,
+                Quantity:event.target.Quantity.value,
+                Details:event.target.Details.value,
+                AmazonLink:event.target.AmazonLink.value,
             })
         })
         .then(res=>res.json())
@@ -49,7 +53,7 @@ export class EditItemModal extends Component{
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
-                                    <FormGroup controlId="CategoryId">
+                                    <FormGroup controlId="ItemyId">
                                         <FormLabel>ItemId</FormLabel>
                                         <FormControl type="text" name="ItemId" required disabled defaultValue={this.props.itemid} placeholder="ItemId"></FormControl>
 
@@ -57,7 +61,22 @@ export class EditItemModal extends Component{
                                     <FormGroup controlId="ItemName">
                                         <FormLabel>ItemName</FormLabel>
                                         <FormControl type="text" name="ItemName" required defaultValue={this.props.itemname} placeholder="ItemName"></FormControl>
-
+                                    </FormGroup>
+                                    <FormGroup controlId="Category">
+                                        <FormLabel>Category</FormLabel>
+                                        <FormControl type="text" name="Category" required defaultValue={this.props.cat} placeholder="Category"></FormControl>
+                                    </FormGroup>
+                                    <FormGroup controlId="Quantity">
+                                        <FormLabel>Quantity</FormLabel>
+                                        <FormControl type="text" name="Quantity" required defaultValue={this.props.quantity} placeholder="Quantity"></FormControl>
+                                    </FormGroup>
+                                    <FormGroup controlId="Details">
+                                        <FormLabel>Details</FormLabel>
+                                        <FormControl type="text" name="Details" required defaultValue={this.props.detail} placeholder="Details"></FormControl>
+                                    </FormGroup>
+                                    <FormGroup controlId="AmazonLink">
+                                        <FormLabel>Amazon Link</FormLabel>
+                                        <FormControl type="text" name="AmazonLink" required defaultValue={this.props.amzl} placeholder="AmazonLink"></FormControl>
                                     </FormGroup>
                                     <FormGroup>
                                         <Button variant="primary" type="submit">
